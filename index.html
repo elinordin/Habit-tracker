@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROTA - Habit tracker</title>
+
+    <!--Links-->
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" type="text/javascript" defer></script>
-
+    <script src="https://use.fontawesome.com/releases/v5.13.1/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Rakkas&display=swap" rel="stylesheet">
 </head>
 <body>
 <nav>
-    <h1>ROTA</h1>
+    <h1 id="logo">ROTA</h1>
     <button id="addHabit">    
-        <a href=#>+</a>
+        <a href=#><i class="fas fa-plus fa-2x"></i></a>
     </button>
     <button id="toggleMenu">
-        Hamburgare    
+        <i class="fas fa-bars fa-2x"></i>    
     </button>
 
     <div id="menu">
@@ -24,8 +27,17 @@
             <li>Statistics</li>
         </ul>
     </div>
-
 </nav>
+
+<main>
+    <div class="habit">Yoga<button class="checked"><i class="fas fa-check"></i></button></div>
+    <div class="habit">Meditation<button class="checked"><i class="fas fa-check"></i></button></div>
+    <div class="habit">Floss<button class="checked"><i class="fas fa-check"></i></button></div>
+    <div class="habit">Run<button class="checked"><i class="fas fa-check"></i></button></div>
+    <div class="habit">Sleep<button class="checked"><i class="fas fa-check"></i></button></div>
+    <div class="habit">Coding<button class="checked"><i class="fas fa-check"></i></button></div>
+</main>
+
 
 </body>
 </html>

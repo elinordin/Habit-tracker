@@ -1,0 +1,80 @@
+/*---------------GENERAL---------------*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --beige: #F2E0C8;
+    --orange: #F15922;
+    --yellow: #D9D65D;
+    --green: #717F56;
+    --white: #FCFBF9;
+    --font: 'Quicksand', sans-serif;
+    --logoFont: 'Rakkas', cursive;
+
+}
+
+body {
+    background-color: var(--beige);
+    padding: 30px 10%;
+    font-family: var(--font);
+}
+
+/*---------------NAVBAR---------------*/
+nav {
+    color: var(--white);
+    height: 45px;
+}
+
+#logo {
+    display: inline-block;
+    font-size: 1.7rem;
+    font-family: var(--logoFont);
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+nav button {
+    float: right;
+    margin-left: 11px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    background-color: var(--beige);
+    color: var(--white);
+    border: none;
+    box-shadow: 4px 4px 4px rgba(206, 190, 170, 0.25), -4px -4px 4px rgba(255, 255, 230, 0.6);
+}
+
+#menu {
+    display: none;
+}
+
+/*---------------MAIN---------------*/
+main {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-auto-rows: 155px;
+    grid-gap: 22px;
+}
+
+.habit {
+    background-color: var(--white);
+    border-radius: 0px 15px;
+    text-align: left;
+    padding: 8%;
+
+}
+
+.checked {
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    background-color: var(--white);
+    border: none;
+    box-shadow: -3px -3px 4px #FFFFFF, 3px 3px 4px rgba(209, 208, 207, 0.5);
+    float: right;
+}
