@@ -30,7 +30,7 @@ nav {
 
 #logo {
     display: inline-block;
-    font-size: 1.7rem;
+    font-size: 2rem;
     font-family: var(--logoFont);
     font-weight: normal;
     letter-spacing: 2px;
@@ -46,6 +46,14 @@ nav button {
     color: var(--white);
     border: none;
     box-shadow: 4px 4px 4px rgba(206, 190, 170, 0.25), -4px -4px 4px rgba(255, 255, 230, 0.6);
+}
+
+nav button:active {
+    box-shadow: inset 4px 4px 4px rgba(206, 190, 170, 0.25), inset -4px -4px 4px rgba(255, 255, 230, 0.6);
+}
+
+#addHabit .fa-plus{
+    color: var(--white);
 }
 
 #menu {
@@ -73,14 +81,15 @@ main {
     height: 60%;
     display: inline-block;
     width: 100%;
-    margin-top: 20%;
+    margin-top: 1em;
 }
 
 .habitText{
     display: inline-block;
     position: absolute;
-    bottom: 8%;
+    bottom: 9%;
     left: 9%;
+    font-size: 1rem; 
 }
 
 .checked {
@@ -92,6 +101,10 @@ main {
     box-shadow: -3px -3px 4px #FFFFFF, 3px 3px 4px rgba(209, 208, 207, 0.5);
     float: right;
     position: absolute;
-    right: 8%;
-    bottom: 8%;
+    right: 9%;
+    bottom: 9%;
+}
+
+.checked:active{
+    box-shadow: inset -3px -3px 4px #FFFFFF, inset 3px 3px 4px rgba(209, 208, 207, 0.5);
 }
