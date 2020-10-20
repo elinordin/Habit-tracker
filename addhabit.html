@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROTA - Add Habit</title>
+
+    <!--Links-->
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" type="text/javascript" defer></script>
+    <script src="https://use.fontawesome.com/releases/v5.13.1/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Rakkas&display=swap" rel="stylesheet">
+</head>
+
+<body class="greenBody">
+<nav>
+    <h1 id="logo">ROTA</h1>
+    <button class= "greenButton" id="toggleMenu">
+        <i id="greenBars" class="fas fa-bars fa-2x"></i>    
+    </button>
+    <button class= "greenButton" id="addHabit">    
+        <a href=#><i id="greenPlus" class="fas fa-plus fa-2x"></i></a>
+    </button>
+</nav>
+
+<div class="greenMenu" id="menu">
+    <ul>
+        <li><a href=#>Monthly overview</a></li>
+        <li><a href=#>Statistics</a></li>
+    </ul>
+</div>
+
+<main class="addHabitPage">
+   <form class="addHabitForm">
+        <label for="habitName">Habit name</label>
+        <input id="habitName" type="text" placeholder="Name of new habit">
+        <label id="habitGoal" for="habitGoal">What is your goal?</label>
+        <input class="days" name="days" id="one" type="radio" value="1">
+        <label for="one" class="dayStyle">1</label>
+        <input class="days"name="days" id="two" type="radio" value="2">
+        <label for="two" class="dayStyle">2</label>
+        <input class="days"name="days" id="three" type="radio" value="3">
+        <label for="three" class="dayStyle">3</label>
+        <input class="days"name="days" id="four" type="radio" value="4">
+        <label for="four" class="dayStyle">4</label>
+        <input class="days"name="days" id="five" type="radio" value="5">
+        <label for="five" class="dayStyle">5</label>
+        <input class="days"name="days" id="six" type="radio" value="6">
+        <label for="six" class="dayStyle">6</label>
+        <input class="days"name="days" id="seven" type="radio" value="7">
+        <label for="seven" class="dayStyle">7</label>
+        <p class="habitGoalText">Days a Week</p>
+        <label id="date" for="date">Whats the deadline?</label>
+        <input type="date">
+        <input id="submit" type="submit" value="Submit">
+   </form>
+
+</main>
+
+
+</body>
+</html>
+
+  
