@@ -10,6 +10,7 @@
     --orange: #F15922;
     --yellow: #D9D65D;
     --green: #717F56;
+    --darkGreen: #2A6049;
     --white: #FCFBF9;
     --font: 'Quicksand', sans-serif;
     --logoFont: 'Rakkas', cursive;
@@ -20,6 +21,7 @@ body {
     background-color: var(--beige);
     padding: 30px 10%;
     font-family: var(--font);
+    position: relative;
 }
 
 /*---------------NAVBAR---------------*/
@@ -45,6 +47,7 @@ nav button {
     background-color: var(--beige);
     color: var(--white);
     border: none;
+    cursor: pointer;
     box-shadow: 4px 4px 4px rgba(206, 190, 170, 0.25), -4px -4px 4px rgba(255, 255, 230, 0.6);
 }
 
@@ -56,8 +59,40 @@ nav button:active {
     color: var(--white);
 }
 
+ #addHabit a .fa-plus:hover, .fa-bars:hover{
+    color: var(--darkGreen);
+ }
+
+
+
 #menu {
+    background-color: var(--beige);
+    opacity: 95%;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    display: inline-block;
+    width: 80%;
+    height: 90%;
+    margin-top: 5px;
+    padding-top: 8em;
+    line-height: 2.5;
+    color: var(--green);
+    font-size: 1.5rem;
+    font-weight: 600;
     display: none;
+}
+
+#menu ul {
+    list-style-type: none; 
+}
+#menu a{
+    color: var(--green);
+    text-decoration: none;
+}
+
+#menu li a:hover {
+    color: var(--darkGreen);
 }
 
 /*---------------MAIN---------------*/
