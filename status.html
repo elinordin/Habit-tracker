@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROTA - Habit tracker</title>
+
+    <!--Links-->
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" type="text/javascript" defer></script>
+    <script src="https://use.fontawesome.com/releases/v5.13.1/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Rakkas&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav>
+    <h1 id="logo">ROTA</h1>
+    <button id="toggleMenu">
+        <i class="fas fa-bars fa-2x"></i>    
+    </button>
+    <button id="addHabit">    
+        <a href=#><i class="fas fa-plus fa-2x"></i></a>
+    </button>
+</nav>
+
+<div class="beigeMenu" id="menu">
+    <ul>
+        <li><a href=#>Monthly overview</a></li>
+        <li><a href=#>Statistics</a></li>
+    </ul>
+</div>
+
+<main class="statusPage">
+    <ul>
+        <li class="uneven">
+            <div class="darkUnevenCircle"></div>
+            <span class="statusHabit">Yoga</span>
+            <div class="status">
+                <div class="circle">
+                    <img class="greenPlantStatus" src="Pictures/flower.svg" alt="green plant">
+                </div>
+                <span class="procent">90%</span>
+            </div>
+            <div class="lightUnevenCircle"></div>
+        </li>
+
+        <li class="even"><div class="lightEvenCircle"></div>Meditation<div class="darkEvenCircle"></div></li>
+        <li class="uneven"><div class="darkUnevenCircle"></div>Floss<div class="lightUnevenCircle"></div></li>
+        <li class="even"><div class="lightEvenCircle"></div>Sleep<div class="darkEvenCircle"></div></li>
+        <li class="uneven"><div class="darkUnevenCircle"></div>Walk<div class="lightUnevenCircle"></div></li>
+        <li class="even"><div class="lightEvenCircle"></div>Coding<div class="darkEvenCircle"></div></li>
+    </ul>
+
+</main>
+
+
+</body>
+</html>

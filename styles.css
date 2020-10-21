@@ -242,8 +242,9 @@ nav button {
     margin-top: 3.1em;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
-/*------------CALENDER--------------*/
 
+
+/*------------CALENDER--------------*/
 .overview {
     text-align: center;
     margin-top: 3em;
@@ -270,7 +271,95 @@ nav button {
     border-width:0px;
     width: 80vw;
     height: 40vh;
-    /* display: none; */
+    display: none;
+}
+
+
+/*------------STATUS--------------*/
+
+.statusPage li{
+    list-style-type: none;
+    background-color: var(--white);
+    min-height: 6.016rem;
+    text-align: center;
+    margin-top: 2.4rem;
+    padding: 2.5rem;
+    position: relative;
+    font-size: 1.4rem;
+}
+
+.uneven {
+    border-radius: 0 15px;
+}
+
+.even {
+    border-radius: 15px 0;
+}
+
+.darkUnevenCircle {
+    background-color: var(--green);
+    width: 96px;
+    height: 56px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0 0 100% 0;
+}
+
+.lightUnevenCircle {
+    background-color: var(--yellow);
+    width: 96px;
+    height: 56px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 100% 0 0 0;
+}
+
+.darkEvenCircle {
+    background-color: var(--green);
+    width: 96px;
+    height: 56px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 0 0 100%;
+}
+
+.lightEvenCircle {
+    background-color: var(--yellow);
+    width: 96px;
+    height: 56px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 0 100% 0 0;
+}
+
+.status{
+    display: none;
+}
+
+.circle{
+    border: 23px solid var(--yellow);
+    border-radius: 50%;
+    width: 13.5rem;
+    height: 13.5rem;
+    padding: 30px;
+    filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
+    margin: auto;
+    margin-top: 2.4rem;
+    margin-bottom: 1rem;
+}
+
+.greenPlantStatus{
+    height: 7.06rem;
+
+}
+
+.procent{
+    font-size: 3.75rem;
+    font-weight: 600;
     
 }
 
