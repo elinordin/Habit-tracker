@@ -15,12 +15,14 @@ function setupEventListeners(){
     document.getElementById("submit").addEventListener("click", submitForm); //Click listener to submit-button
 }
 
+//Importing array from local storage
 function importArray(){
     for (var i = 0; i < (localStorage.length / 4); i++){ //For every saved habit in local storage - import habits to array
         habitArray.push(new Habit(localStorage.getItem("habitArray[" + i + "].name"), localStorage.getItem("habitArray[" + i + "].goal"), localStorage.getItem("habitArray[" + i + "].deadline")));
     }
 }
 
+//Toggles menu
 function toggleMenu(){
     if (menuDisplayed == false){ // If menu is not displayed
         document.getElementById("menu").style.display = "block";
@@ -31,6 +33,7 @@ function toggleMenu(){
     }
 }
 
+//Constructor function for adding new habit
 function Habit(name, goal, deadline){
 
     this.name = name;
@@ -40,6 +43,7 @@ function Habit(name, goal, deadline){
 
 }
 
+//Submit add habit-form
 function submitForm(){
     checkRadio();
 
@@ -57,6 +61,7 @@ function submitForm(){
        
 }
 
+//Check if radio buttons are checked and if yes, which one
 function checkRadio(){
     for (var i=0; i < radioButtons.length; i++){ //For every radio-button
         if (radioButtons[i].checked === true){ //Check if a button is checked
