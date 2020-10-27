@@ -147,11 +147,20 @@ nav button {
     position:relative;
 }
 
+.fa-times{
+    position:absolute;
+}
+
+.fa-times:hover{
+    color: var(--orange);
+    cursor: pointer;
+}
+
 .greenPlant {
     height: 60%;
     display: inline-block;
     width: 100%;
-    margin-top: 1em;
+    margin-top: 1.4em;
 }
 
 .habitText{

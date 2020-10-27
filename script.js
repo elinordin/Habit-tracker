@@ -5,12 +5,16 @@ let dayGoal;
 let habitArray = [];
 let currentPage = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
 
-setupEventListeners();
-importArray();
+importArrayFromLocalStorage();
 
 if (currentPage === "index.html") {
     displayHabitBoxes();
 }
+
+setupEventListeners();
+
+
+
 
 // Collection of all event listeners
 function setupEventListeners(){
@@ -19,12 +23,30 @@ function setupEventListeners(){
     if (currentPage === "addhabit.html") {
         document.getElementById("submit").addEventListener("click", submitForm); //Click listener to submit-button
     }
+    if (currentPage === "index.html"){
+       for (let i = 0; i < habitArray.length; i++){
+            document.getElementById("delete" + i).addEventListener("click", function(){
+                deleteHabit(i);
+            })
+       }
+    }
 }
 
+
 //Importing array from local storage
-function importArray(){
-    for (var i = 0; i < (localStorage.length / 4); i++){ //For every saved habit in local storage - import habits to array
+function importArrayFromLocalStorage(){
+    for (let i = 0; i < (localStorage.length / 4); i++){ //For every saved habit in local storage - import habits to array
         habitArray.push(new Habit(localStorage.getItem("habitArray[" + i + "].name"), localStorage.getItem("habitArray[" + i + "].goal"), localStorage.getItem("habitArray[" + i + "].deadline")));
+    }
+}
+
+//Importing local storage from array
+function importLocalStorageFromArray(){
+    for (let i = 0; i < habitArray.length; i++){ //For every item in array - save object to local storage
+        localStorage.setItem("habitArray[" + i + "].name", habitArray[i].name);
+        localStorage.setItem("habitArray[" + i + "].goal", habitArray[i].goal);
+        localStorage.setItem("habitArray[" + i + "].deadline", habitArray[i].deadline);
+        localStorage.setItem("habitArray[" + i + "].plant", habitArray[i].plant);
     }
 }
 
@@ -58,19 +80,14 @@ function submitForm(){
         document.getElementById("error").innerHTML = "Please fill in all fields!";
     } else {
         habitArray.push(new Habit(habitName.value, dayGoal, habitDate.value));
-        for (var i = 0; i < habitArray.length; i++){ //For every item in array - save object to local storage
-            localStorage.setItem("habitArray[" + i + "].name", habitArray[i].name);
-            localStorage.setItem("habitArray[" + i + "].goal", habitArray[i].goal);
-            localStorage.setItem("habitArray[" + i + "].deadline", habitArray[i].deadline);
-            localStorage.setItem("habitArray[" + i + "].plant", habitArray[i].plant);
-        }
+        importLocalStorageFromArray();
     }
        
 }
 
 //Check if radio buttons are checked and if yes, which one
 function checkRadio(){
-    for (var i=0; i < radioButtons.length; i++){ //For every radio-button
+    for (let i=0; i < radioButtons.length; i++){ //For every radio-button
         if (radioButtons[i].checked === true){ //Check if a button is checked
             radioChecked = true; //If a button is checked - radioChecked = true
             dayGoal = i + 1; //Save chosen daygoal
@@ -79,17 +96,32 @@ function checkRadio(){
 }
 
 function displayHabitBoxes(){
-    for (var i=0; i < habitArray.length; i++){
-        let newHtml = "<div class='habit'>" +
-                        "<img class='greenPlant' src='" + habitArray[i].plant + "' alt='green plant'>" + 
-                        "<p class='habitText'>" + habitArray[i].name + "</p>" +
-                        "<button class='checked'><i class='fas fa-check'></i></button>" +
+    for (let i=0; i < habitArray.length; i++){
+        let newHtml = "<div id='habit" + i + "'class='habit'>" +
+                            "<div id='delete" + i + "'><i class='fas fa-times'></i></div>" +
+                            "<img class='greenPlant' src='" + habitArray[i].plant + "' alt='green plant'>" + 
+                            "<p class='habitText'>" + habitArray[i].name + "</p>" +
+                            "<button class='checked'><i class='fas fa-check'></i></button>" +
                         "</div>";
                  
         let startPage = document.getElementById("startPage");
         
         startPage.innerHTML += newHtml;
     }
+}
 
+
+function deleteHabit(i){
+    console.log("You are now in deleteHabit");
+
+    let clickedHabit = document.getElementById("habit" + i);
+    clickedHabit.remove();
+
+    habitArray.splice(i, 1);
+    localStorage.clear()
+
+    importLocalStorageFromArray();
 
 }
+
+
