@@ -3,16 +3,22 @@ let radioButtons = document.getElementsByClassName("days");
 let radioChecked = false;
 let dayGoal;
 let habitArray = [];
+let currentPage = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
 
 setupEventListeners();
 importArray();
 
-
+if (currentPage === "index.html") {
+    displayHabitBoxes();
+}
 
 // Collection of all event listeners
 function setupEventListeners(){
     document.getElementById("toggleMenu").addEventListener("click", toggleMenu); //Click listener to hamburger menu
-    document.getElementById("submit").addEventListener("click", submitForm); //Click listener to submit-button
+    
+    if (currentPage === "addhabit.html") {
+        document.getElementById("submit").addEventListener("click", submitForm); //Click listener to submit-button
+    }
 }
 
 //Importing array from local storage
@@ -21,6 +27,7 @@ function importArray(){
         habitArray.push(new Habit(localStorage.getItem("habitArray[" + i + "].name"), localStorage.getItem("habitArray[" + i + "].goal"), localStorage.getItem("habitArray[" + i + "].deadline")));
     }
 }
+
 
 //Toggles menu
 function toggleMenu(){
@@ -69,4 +76,20 @@ function checkRadio(){
             dayGoal = i + 1; //Save chosen daygoal
         }
     }
+}
+
+function displayHabitBoxes(){
+    for (var i=0; i < habitArray.length; i++){
+        let newHtml = "<div class='habit'>" +
+                        "<img class='greenPlant' src='" + habitArray[i].plant + "' alt='green plant'>" + 
+                        "<p class='habitText'>" + habitArray[i].name + "</p>" +
+                        "<button class='checked'><i class='fas fa-check'></i></button>" +
+                        "</div>";
+                 
+        let startPage = document.getElementById("startPage");
+        
+        startPage.innerHTML += newHtml;
+    }
+
+
 }

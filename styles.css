@@ -131,7 +131,7 @@ nav button {
 }
 
 /*---------------MAIN---------------*/
-.startPage {
+#startPage {
     margin-top: 25px;
     display: grid;
     grid-template-columns: repeat(2,1fr);
