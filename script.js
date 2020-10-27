@@ -5,6 +5,7 @@ let dayGoal;
 let habitArray = [];
 let currentPage = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
 
+
 importArrayFromLocalStorage();
 
 if (currentPage === "index.html") {
@@ -28,15 +29,19 @@ function setupEventListeners(){
             document.getElementById("delete" + i).addEventListener("click", function(){
                 deleteHabit(i);
             })
+            document.getElementById("checked" + i).addEventListener("click", function(){
+                toggleCheckMark(i);
+            })
        }
     }
+
 }
 
 
 //Importing array from local storage
 function importArrayFromLocalStorage(){
-    for (let i = 0; i < (localStorage.length / 4); i++){ //For every saved habit in local storage - import habits to array
-        habitArray.push(new Habit(localStorage.getItem("habitArray[" + i + "].name"), localStorage.getItem("habitArray[" + i + "].goal"), localStorage.getItem("habitArray[" + i + "].deadline")));
+    for (let i = 0; i < (localStorage.length / 5); i++){ //For every saved habit in local storage - import habits to array
+        habitArray.push(new Habit(localStorage.getItem("habitArray[" + i + "].name"), localStorage.getItem("habitArray[" + i + "].goal"), localStorage.getItem("habitArray[" + i + "].deadline"), localStorage.getItem("habitArray[" + i + "].checked")));
     }
 }
 
@@ -47,9 +52,9 @@ function importLocalStorageFromArray(){
         localStorage.setItem("habitArray[" + i + "].goal", habitArray[i].goal);
         localStorage.setItem("habitArray[" + i + "].deadline", habitArray[i].deadline);
         localStorage.setItem("habitArray[" + i + "].plant", habitArray[i].plant);
+        localStorage.setItem("habitArray[" + i + "].checked", habitArray[i].checked);      
     }
 }
-
 
 //Toggles menu
 function toggleMenu(){
@@ -62,13 +67,30 @@ function toggleMenu(){
     }
 }
 
+//Toggle the style of the checkmark
+function toggleCheckMark(i){
+    console.log(habitArray[i].checked);
+   if (habitArray[i].checked == "false"){ //If checkmark is not checked
+        document.getElementById("checkIcon" + i).classList.remove("false");
+        document.getElementById("checkIcon" + i).classList.add("true");
+        habitArray[i].checked = "true";
+        localStorage.setItem("habitArray[" + i + "].checked", habitArray[i].checked)
+   } else if (habitArray[i].checked == "true"){ //If checkmark is checked
+        document.getElementById("checkIcon" + i).classList.remove("true");
+        document.getElementById("checkIcon" + i).classList.add("false");
+        habitArray[i].checked = "false";
+        localStorage.setItem("habitArray[" + i + "].checked", habitArray[i].checked)
+   }
+}
+
 //Constructor function for adding new habit
-function Habit(name, goal, deadline){
+function Habit(name, goal, deadline, checked){
 
     this.name = name;
     this.goal = goal;
     this.deadline = deadline;
     this.plant = "Pictures/flower.svg";
+    this.checked = checked;
 
 }
 
@@ -79,7 +101,7 @@ function submitForm(){
     if (habitName.value.length <= 0 || radioChecked === false || habitDate.value.length <= 0) {
         document.getElementById("error").innerHTML = "Please fill in all fields!";
     } else {
-        habitArray.push(new Habit(habitName.value, dayGoal, habitDate.value));
+        habitArray.push(new Habit(habitName.value, dayGoal, habitDate.value, false));
         importLocalStorageFromArray();
     }
        
@@ -95,22 +117,24 @@ function checkRadio(){
     }
 }
 
+//Importing HTML-element to startPage
 function displayHabitBoxes(){
     for (let i=0; i < habitArray.length; i++){
+
         let newHtml = "<div id='habit" + i + "'class='habit'>" +
                             "<div id='delete" + i + "'><i class='fas fa-times'></i></div>" +
                             "<img class='greenPlant' src='" + habitArray[i].plant + "' alt='green plant'>" + 
                             "<p class='habitText'>" + habitArray[i].name + "</p>" +
-                            "<button class='checked'><i class='fas fa-check'></i></button>" +
+                            "<button id='checked" + i + "'class='checked'><i id='checkIcon" + i + "'class='fas fa-check " + habitArray[i].checked + "'></i></button>" +
                         "</div>";
-                 
+        
         let startPage = document.getElementById("startPage");
         
         startPage.innerHTML += newHtml;
     }
 }
 
-
+//Deleting habit from startPage, array and local storage
 function deleteHabit(i){
     console.log("You are now in deleteHabit");
 
@@ -121,7 +145,4 @@ function deleteHabit(i){
     localStorage.clear()
 
     importLocalStorageFromArray();
-
 }
-
-

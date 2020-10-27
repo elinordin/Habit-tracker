@@ -184,6 +184,16 @@ nav button {
     bottom: 9%;
 }
 
+.true{
+    color: var(--green);
+}
+
+.false{
+    color: var(--white);
+    stroke: #000;
+    stroke-width: 15;
+}
+
 .checked:active{
     box-shadow: inset -3px -3px 4px #FFFFFF, inset 3px 3px 4px rgba(209, 208, 207, 0.5);
 }
