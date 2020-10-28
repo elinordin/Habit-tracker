@@ -136,7 +136,6 @@ function displayHabitBoxes(){
 
 //Deleting habit from startPage, array and local storage
 function deleteHabit(i){
-    console.log("You are now in deleteHabit");
 
     let clickedHabit = document.getElementById("habit" + i);
     clickedHabit.remove();
