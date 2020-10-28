@@ -34,6 +34,9 @@ function setupEventListeners(){
             })
        }
     }
+    if (currentPage === "status.html"){
+        document.getElementsByClassName("lightUnevenCircle")[0].addEventListener("click", displayLearnings);
+    }
 
 }
 
@@ -104,6 +107,7 @@ function submitForm(){
         habitArray.push(new Habit(habitName.value, dayGoal, habitDate.value, false));
         importLocalStorageFromArray();
     }
+    
        
 }
 
@@ -144,4 +148,9 @@ function deleteHabit(i){
     localStorage.clear()
 
     importLocalStorageFromArray();
+}
+
+//Displays learnings
+function displayLearnings(){
+    document.getElementById("learnings").style.display = "block";
 }

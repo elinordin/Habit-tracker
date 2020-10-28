@@ -297,7 +297,7 @@ nav button {
 
 /*------------STATUS--------------*/
 
-.statusPage li{
+#statusPage .uneven, .even{
     list-style-type: none;
     background-color: var(--white);
     min-height: 6.016rem;
@@ -382,4 +382,24 @@ nav button {
     font-weight: 600;
     
 }
+#learnings {
+    opacity: 95%;
+    text-align: left;
+    color: var(--darkGreen);
+    position: absolute;
+    z-index: 1;
+    display: inline-block;
+    width: 80%;
+    height: 90%;
+    margin-top: 5px;
+    padding-top: 1.4em;
+    padding-left: 20px;
+    line-height: 1.5;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: none;
+}
 
+#learnings li {
+    padding-top: 20px;
+}
