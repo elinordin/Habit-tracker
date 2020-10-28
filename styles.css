@@ -186,12 +186,14 @@ nav button {
 
 .true{
     color: var(--green);
+    stroke: var(--green);
+    stroke-width: 20;
 }
 
 .false{
     color: var(--white);
     stroke: #000;
-    stroke-width: 15;
+    stroke-width: 20;
 }
 
 .checked:active{

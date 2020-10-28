@@ -4,7 +4,15 @@ let radioChecked = false;
 let dayGoal;
 let habitArray = [];
 let currentPage = location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+let todaysDate = new Date().toISOString().slice(0, 10);
 
+//-------------------------------PROGRAM RUNNING--------------------------------------
+    
+checkLocalStorageForDate();
+
+if (todaysDate !== localStorage.getItem("savedDate")) {
+    resetChecked();
+};
 
 importArrayFromLocalStorage();
 
@@ -15,6 +23,21 @@ if (currentPage === "index.html") {
 setupEventListeners();
 
 
+//----------------------------------FUNCTIONS----------------------------------------_
+
+function checkLocalStorageForDate() {
+    if (localStorage.getItem("savedDate") === null) {
+        localStorage.setItem("savedDate", todaysDate);
+    }
+};
+
+function resetChecked(){
+    localStorage.setItem("savedDate", todaysDate);
+
+    for (let i=0; i < ((localStorage.length/5) - 1); i++) {
+        localStorage.setItem("habitArray[" + i + "].checked", "false")
+    }
+};
 
 
 // Collection of all event listeners
@@ -43,7 +66,7 @@ function setupEventListeners(){
 
 //Importing array from local storage
 function importArrayFromLocalStorage(){
-    for (let i = 0; i < (localStorage.length / 5); i++){ //For every saved habit in local storage - import habits to array
+    for (let i = 0; i < ((localStorage.length / 5) - 1); i++){ //For every saved habit in local storage - import habits to array
         habitArray.push(new Habit(localStorage.getItem("habitArray[" + i + "].name"), localStorage.getItem("habitArray[" + i + "].goal"), localStorage.getItem("habitArray[" + i + "].deadline"), localStorage.getItem("habitArray[" + i + "].checked")));
     }
 }
@@ -106,6 +129,7 @@ function submitForm(){
     } else {
         habitArray.push(new Habit(habitName.value, dayGoal, habitDate.value, false));
         importLocalStorageFromArray();
+        location.replace("index.html");
     }
     
        
