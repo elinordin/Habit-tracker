@@ -163,6 +163,16 @@ nav button {
     margin-top: 1.4em;
 }
 
+.fadeOut{
+    animation: fadeOut;
+    animation-duration: 1.5s;
+}
+
+.fadeIn{
+    animation: fadeIn;
+    animation-duration: 1.5s;
+}
+
 .habitText{
     display: inline-block;
     position: absolute;

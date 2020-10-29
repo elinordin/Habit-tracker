@@ -100,6 +100,7 @@ function toggleCheckMark(i){
         document.getElementById("checkIcon" + i).classList.remove("false");
         document.getElementById("checkIcon" + i).classList.add("true");
         habitArray[i].checked = "true";
+        plantGrow(i);
         localStorage.setItem("habitArray[" + i + "].checked", habitArray[i].checked)
    } else if (habitArray[i].checked == "true"){ //If checkmark is checked
         document.getElementById("checkIcon" + i).classList.remove("true");
@@ -107,6 +108,8 @@ function toggleCheckMark(i){
         habitArray[i].checked = "false";
         localStorage.setItem("habitArray[" + i + "].checked", habitArray[i].checked)
    }
+
+
 }
 
 //Constructor function for adding new habit
@@ -115,7 +118,7 @@ function Habit(name, goal, deadline, checked){
     this.name = name;
     this.goal = goal;
     this.deadline = deadline;
-    this.plant = "Pictures/flower.svg";
+    this.plant = "Pictures/plant0.svg";
     this.checked = checked;
 
 }
@@ -177,4 +180,10 @@ function deleteHabit(i){
 //Displays learnings
 function displayLearnings(){
     document.getElementById("learnings").style.display = "block";
+}
+
+function plantGrow(i){
+    document.getElementsByClassName("greenPlant")[i].classList.add("fadeOut");
+    document.getElementsByClassName("greenPlant")[i].src = "Pictures/plant1.svg";
+    document.getElementsByClassName("greenPlant")[i].classList.add("fadeIn");
 }
