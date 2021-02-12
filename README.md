@@ -3,7 +3,9 @@ Brief 3 - Hyper Island - If this, than that module.
 
 ### :busts_in_silhouette: Team: 
 [Elin Nordin](https://github.com/elinordin)
+
 [Sofia Cronström](https://github.com/SofiaCronstrom)
+
 [Malin Olofsson](https://github.com/Mieown)
 
 ### :scroll: Brief:
